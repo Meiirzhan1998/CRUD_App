@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New car</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/cars}" th:object="${car}">
+    <label for="brand">Enter brand: </label>
+    <input type="text" th:field="*{brand}" id="brand"/>
+    <div style="color:red" th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Error</div>
+    <br/>
+    <label for="model">Enter model: </label>
+    <input type="text" th:field="*{model}" id="model"/>
+    <div style="color:red" th:if="${#fields.hasErrors('model')}" th:errors="*{model}">Error</div>
+    <br/>
+    <label for="createdDate">Enter created date: </label>
+    <input type="text" th:field="*{createdDate}" id="createdDate"/>
+    <div style="color:red" th:if="${#fields.hasErrors('brand')}" th:errors="*{createdDate}">Error</div>
+    <br/>
+    <label for="engineVolume">Enter engine volume: </label>
+    <input type="text" th:field="*{engineVolume}" id="engineVolume"/>
+    <div style="color:red" th:if="${#fields.hasErrors('engineVolume')}" th:errors="*{engineVolume}">Error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>
